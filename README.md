@@ -97,11 +97,11 @@ This choice is ideal for grid-based problems where movement is restricted to hor
 
 ### Data Structures
 
-- Grid: A 2D array representing the environment with obstacles and open cells.
-- Cost Matrix: Tracks the values for each cell.
-- Parent Matrix: Stores the parent of each node to reconstruct the path.
-- Closed List: A boolean matrix indicating explored nodes.
-- Queue: A static array used to store nodes to be processed.
+- **Grid**: A 2D array representing the environment with obstacles and open cells.
+- **Cost Matrix**: Tracks the values for each cell.
+- **Parent Matrix**: Stores the parent of each node to reconstruct the path.
+- **Closed List**: A boolean matrix indicating explored nodes.
+- **Queue**: A static array used to store nodes to be processed.
 
 ### Initialization
 
