@@ -6,7 +6,7 @@ C was chosen for this implementation due to its precise control over system-leve
 
 ## Tools
 
-### [C Bounded Model Checker (CBMC)](https://github.com/diffblue/cbmc)[^1]
+### [C Bounded Model Checker (CBMC)](https://github.com/diffblue/cbmc) [^1]
 
 [^1]: Kroening, D., Schrammel, P., & Tautschnig, M. (2023, February 5). CBMC: The C bounded model Checker. arXiv.org. https://arxiv.org/abs/2302.02384
 
@@ -25,7 +25,9 @@ CBMC’s exhaustive analysis is crucial for detecting subtle bugs in the A\* alg
 
 These features ensure the correctness of the A\* algorithm by simplifying debugging and validation, especially within the bounded constraints necessary for formal verification.
 
-### Seahorn ​​
+### [Seahorn](https://seahorn.github.io/) [^2]
+
+[^2]: A.Gurfinkel, T.Kahsai, A. Komuravelli, J.A.Navas. The SeaHorn Verification Framework. At CAV 2015. LNCS 9206, pp. 343-361. 2015 ​https://seahorn.github.io/papers/cav15.pdf
 
 Seahorn is a formal verification tool designed for software programs, particularly in C and C++. By using mathematical methods, it ensures that a program behaves correctly under all possible execution scenarios, making it a valuable asset for safety-critical applications.
 
@@ -53,7 +55,9 @@ The shortest-path problem has been studied in depth, and a variety of algorithms
 
 #### Classical algorithms
 
-Dijkstra's algorithm guarantees the shortest path in graphs with non-negative edge weights by iteratively selecting the vertex with the smallest tentative distance and updating the distances of its neighbors. Similarly, the Bellman-Ford algorithm extends this capability to graphs with negative weight edges by iteratively relaxing all edges and further extends the added advantage of detecting negative weight cycles. In dense graphs, Floyd-Warshall solves the all-pairs shortest-path problem by considering each vertex as an intermediate point. Though powerful, its computational complexity makes it less suitable for large graphs. The Johnson algorithm, which combines the Bellman-Ford and Dijkstra algorithms, is more efficient for sparse graphs and can handle negative weights when computing all-pairs shortest paths.
+Dijkstra's[^3] algorithm guarantees the shortest path in graphs with non-negative edge weights by iteratively selecting the vertex with the smallest tentative distance and updating the distances of its neighbors. Similarly, the Bellman-Ford algorithm extends this capability to graphs with negative weight edges by iteratively relaxing all edges and further extends the added advantage of detecting negative weight cycles. In dense graphs, Floyd-Warshall solves the all-pairs shortest-path problem by considering each vertex as an intermediate point. Though powerful, its computational complexity makes it less suitable for large graphs. The Johnson algorithm, which combines the Bellman-Ford and Dijkstra algorithms, is more efficient for sparse graphs and can handle negative weights when computing all-pairs shortest paths.
+
+[^3]: Dijkstra, E. W. (1959). A note on two problems in connexion with graphs. Numerische Mathematik, 1(1), 269–271.
 
 #### Specialized Algorithms Developed to Solve Special Cases
 
