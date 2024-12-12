@@ -57,7 +57,7 @@ The shortest-path problem has been studied in depth, and a variety of algorithms
 
 Dijkstra's[^3] algorithm guarantees the shortest path in graphs with non-negative edge weights by iteratively selecting the vertex with the smallest tentative distance and updating the distances of its neighbors. Similarly, the Bellman-Ford algorithm extends this capability to graphs with negative weight edges by iteratively relaxing all edges and further extends the added advantage of detecting negative weight cycles. In dense graphs, Floyd-Warshall solves the all-pairs shortest-path problem by considering each vertex as an intermediate point. Though powerful, its computational complexity makes it less suitable for large graphs. The Johnson algorithm, which combines the Bellman-Ford and Dijkstra algorithms, is more efficient for sparse graphs and can handle negative weights when computing all-pairs shortest paths.
 
-[^3]: Dijkstra, E. W. (1959). A note on two problems in connexion with graphs. Numerische Mathematik, 1(1), 269–271.
+[^3]: Dijkstra, E. W. (1959). A note on two problems in connexion with graphs. Numerische Mathematik, 1(1), 269–271. https://www.cs.yale.edu/homes/lans/readings/routing/dijkstra-routing-1959.pdf
 
 #### Specialized Algorithms Developed to Solve Special Cases
 
