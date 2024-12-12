@@ -1,14 +1,16 @@
 # Formal-Verification-on-A-in-C-
 
-This project aims to **verify the correctness of the A\* algorithm’s implementation in C for solving the shortest-path problem**. By utilizing formal verification tools such as C Bounded Model Checker (CBMC) and Seahorn, we ensure the algorithm's logical correctness, computational soundness, memory safety, and overall robustness.
+This project aims to **verify the correctness of the A\*[^1] algorithm’s implementation in C for solving the shortest-path problem**. By utilizing formal verification tools such as C Bounded Model Checker (CBMC) and Seahorn, we ensure the algorithm's logical correctness, computational soundness, memory safety, and overall robustness.
 
 C was chosen for this implementation due to its precise control over system-level resources and strong compatibility with advanced verification tools, making it well-suited for performance-critical and reliability-focused applications.
 
+[^1]: Hart, P. E.; Nilsson, N.J.; Raphael, B. (1968). "A Formal Basis for the Heuristic Determination of Minimum Cost Paths". IEEE Transactions on Systems Science and Cybernetics. 4 (2): 100–7. doi:10.1109/TSSC.1968.300136.
+
 ## Tools
 
-### [C Bounded Model Checker (CBMC)](https://github.com/diffblue/cbmc) [^1]
+### [C Bounded Model Checker (CBMC)](https://github.com/diffblue/cbmc)[^2]
 
-[^1]: Kroening, D., Schrammel, P., & Tautschnig, M. (2023, February 5). CBMC: The C bounded model Checker. arXiv.org. https://arxiv.org/abs/2302.02384
+[^2]: Kroening, D., Schrammel, P., & Tautschnig, M. (2023, February 5). CBMC: The C bounded model Checker. arXiv.org. https://arxiv.org/abs/2302.02384
 
 C Bounded Model Checker (CBMC) is a formal verification tool designed to verify the correctness of C and C++ programs by exhaustively exploring all possible states within defined bounds, making it highly effective for identifying subtle bugs and validating safety properties.
 
@@ -25,9 +27,9 @@ CBMC’s exhaustive analysis is crucial for detecting subtle bugs in the A\* alg
 
 These features ensure the correctness of the A\* algorithm by simplifying debugging and validation, especially within the bounded constraints necessary for formal verification.
 
-### [Seahorn](https://seahorn.github.io/) [^2]
+### [Seahorn](https://seahorn.github.io/) [^3]
 
-[^2]: A.Gurfinkel, T.Kahsai, A. Komuravelli, J.A.Navas. The SeaHorn Verification Framework. At CAV 2015. LNCS 9206, pp. 343-361. 2015 ​https://seahorn.github.io/papers/cav15.pdf
+[^3]: A.Gurfinkel, T.Kahsai, A. Komuravelli, J.A.Navas. The SeaHorn Verification Framework. At CAV 2015. LNCS 9206, pp. 343-361. 2015 ​https://seahorn.github.io/papers/cav15.pdf
 
 Seahorn is a formal verification tool designed for software programs, particularly in C and C++. By using mathematical methods, it ensures that a program behaves correctly under all possible execution scenarios, making it a valuable asset for safety-critical applications.
 
@@ -55,17 +57,19 @@ The shortest-path problem has been studied in depth, and a variety of algorithms
 
 #### Classical algorithms
 
-Dijkstra's[^3] algorithm guarantees the shortest path in graphs with non-negative edge weights by iteratively selecting the vertex with the smallest tentative distance and updating the distances of its neighbors. Similarly, the Bellman-Ford[^4] algorithm extends this capability to graphs with negative weight edges by iteratively relaxing all edges and further extends the added advantage of detecting negative weight cycles. In dense graphs, Floyd-Warshall[^5] solves the all-pairs shortest-path problem by considering each vertex as an intermediate point. Though powerful, its computational complexity makes it less suitable for large graphs. The Johnson[^6] algorithm, which combines the Bellman-Ford and Dijkstra algorithms, is more efficient for sparse graphs and can handle negative weights when computing all-pairs shortest paths.
+Dijkstra's[^4] algorithm guarantees the shortest path in graphs with non-negative edge weights by iteratively selecting the vertex with the smallest tentative distance and updating the distances of its neighbors. Similarly, the Bellman-Ford[^5] algorithm extends this capability to graphs with negative weight edges by iteratively relaxing all edges and further extends the added advantage of detecting negative weight cycles. In dense graphs, Floyd-Warshall[^6] solves the all-pairs shortest-path problem by considering each vertex as an intermediate point. Though powerful, its computational complexity makes it less suitable for large graphs. The Johnson[^7] algorithm, which combines the Bellman-Ford and Dijkstra algorithms, is more efficient for sparse graphs and can handle negative weights when computing all-pairs shortest paths.
 
-[^3]: Dijkstra, E. W. (1959). A note on two problems in connexion with graphs. Numerische Mathematik, 1(1), 269–271. https://www.cs.yale.edu/homes/lans/readings/routing/dijkstra-routing-1959.pdf
-[^4]: Shimbel, A. (1955). Structure in communication nets. Proceedings of the Symposium on Information Networks. New York, New York: Polytechnic Press of the Polytechnic Institute of Brooklyn. pp. 199–203; Bellman, Richard (1958). "On a routing problem". Quarterly of Applied Mathematics. 16: 87–90. doi:10.1090/qam/102435. MR 0102435; Ford, Lester R. Jr. (August 14, 1956). Network Flow Theory. Paper P-923. Santa Monica, California: RAND Corporation.
-[^5]: Cormen, Thomas H.; Leiserson, Charles E.; Rivest, Ronald L. (1990). Introduction to Algorithms (1st ed.). MIT Press and McGraw-Hill. ISBN 0-262-03141-8. See in particular Section 26.2, "The Floyd–Warshall algorithm", pp. 558–565 and Section 26.4, "A general framework for solving path problems in directed graphs", pp. 570–576.
-[^6]: Johnson, Donald B. (1977), "Efficient algorithms for shortest paths in sparse networks", Journal of the ACM, 24 (1): 1–13, doi:10.1145/321992.321993, S2CID 207678246.
-[^7]: The viterbi algorithm. (1973, March 1). IEEE Journals & Magazine | IEEE Xplore. https://ieeexplore.ieee.org/document/1450960
+[^4]: Dijkstra, E. W. (1959). A note on two problems in connexion with graphs. Numerische Mathematik, 1(1), 269–271. https://www.cs.yale.edu/homes/lans/readings/routing/dijkstra-routing-1959.pdf
+[^5]: Shimbel, A. (1955). Structure in communication nets. Proceedings of the Symposium on Information Networks. New York, New York: Polytechnic Press of the Polytechnic Institute of Brooklyn. pp. 199–203; Bellman, Richard (1958). "On a routing problem". Quarterly of Applied Mathematics. 16: 87–90. doi:10.1090/qam/102435. MR 0102435; Ford, Lester R. Jr. (August 14, 1956). Network Flow Theory. Paper P-923. Santa Monica, California: RAND Corporation.
+[^6]: Cormen, Thomas H.; Leiserson, Charles E.; Rivest, Ronald L. (1990). Introduction to Algorithms (1st ed.). MIT Press and McGraw-Hill. ISBN 0-262-03141-8. See in particular Section 26.2, "The Floyd–Warshall algorithm", pp. 558–565 and Section 26.4, "A general framework for solving path problems in directed graphs", pp. 570–576.
+[^7]: Johnson, Donald B. (1977), "Efficient algorithms for shortest paths in sparse networks", Journal of the ACM, 24 (1): 1–13, doi:10.1145/321992.321993, S2CID 207678246.
 
 #### Specialized Algorithms Developed to Solve Special Cases
 
-The Viterbi[^7] algorithm is used in decoding hidden Markov models, finding the most probable sequence of hidden states, and effectively solving a stochastic variant of the shortest-path problem. Bidirectional search improves search efficiency by simultaneously exploring the graph from source to target, greatly reducing the search space when meeting in the middle. Similarly, fringe search, an optimized version of A\*, delays node expansion until absolutely necessary, making it particularly effective in reducing computational overhead for some use cases.
+The Viterbi[^8] algorithm is used in decoding hidden Markov models, finding the most probable sequence of hidden states, and effectively solving a stochastic variant of the shortest-path problem. Bidirectional search improves search efficiency by simultaneously exploring the graph from source to target, greatly reducing the search space when meeting in the middle. Similarly, fringe search[^9], an optimized version of A\*, delays node expansion until absolutely necessary, making it particularly effective in reducing computational overhead for some use cases.
+
+[^8]: The viterbi algorithm. (1973, March 1). IEEE Journals & Magazine | IEEE Xplore. https://ieeexplore.ieee.org/document/1450960
+[^9]: Björnsson, Yngvi; Enzenberger, Markus; Holte, Robert C.; Schaeffer, Johnathan. Fringe Search: Beating A\* at Pathfinding on Game Maps. Proceedings of the 2005 IEEE Symposium on Computational Intelligence and Games (CIG05). Essex University, Colchester, Essex, UK, 4–6 April, 2005. IEEE 2005. https://web.archive.org/web/20090219220415/http://www.cs.ualberta.ca/~games/pathfind/publications/cig2005.pdf
 
 #### Why Choose A\*
 
