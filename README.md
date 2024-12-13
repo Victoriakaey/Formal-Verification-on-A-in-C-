@@ -75,6 +75,18 @@ The Viterbi[^8] algorithm is used in decoding hidden Markov models, finding the 
 
 While each of these algorithms has distinct strengths, A* is a balanced solution that combines the optimality of Dijkstra's algorithm with heuristic-driven exploration. Unlike Dijkstra's exhaustive approach, A* estimates the cost to the target node using a heuristic function and hence is capable of focusing on more promising paths to reduce computational effort. Particularly well adapted for big and complex graphs on single-source shortest-path problems, compared with Floyd-Warshall or even Johnson's algorithm, which works in most dense or all-pair pathfinding scenarios. This algorithm also allows a high degree of practical usage for areas such as robotics, game development, or other real-time navigation system functions, because it supports the ability to apply domain-specific knowledge to improve heuristics. These advantages, in addition to its balance of accuracy and computational efficiency, make A\* a compelling choice for further study and verification in this project.
 
+### Formal Verification in Dijkstra Algorithm in C
+
+Kupsa[^10] used [FRAMA-C](https://frama-c.com/index.html), a formal verification tool, along with ANSI/ISO C Specification Language (ACSL) annotations to validate the correctness and reliability of his implementation of Dijkstra’s Algorithm in C language.
+
+He used ACSL annotations to define function contracts, loop invariants, and other key properties, which served as formal specifications for verifying the algorithm's behavior. To achieve this, Kupsa used FRAMA-C with plugins such as Weakest Precondition (WP) for proving functional correctness, Evolved Value Analysis (EVA) for runtime error detection and value analysis, and Runtime Error Annotation Generation (RTE) for generating additional annotations to capture common runtime errors. Furthermore, he used Satisfiability Modulo Theories (SMT) solvers like Alt-Ergo and Z3 to discharge proof obligations generated during the verification process, ensuring the formal verification process was rigorous and complete.
+
+However, he also mentioned some limitations of using FRAMA-C, such as SMT solver timeout issues, in which some proof obligations were too complex for them, resulting in timeouts during the verification process, and plugins like EVA could produce false positives, especially when precision settings are not optimal. Along with these limitations, FRAMA-C's reliance on extensive manual annotations and its limited scalability for larger or more complex programs make it a less suitable choice for projects requiring broader verification guarantees or handling more dynamic behaviors. These challenges resulted in what Kupsa described as an "almost" verified implementation, where not all edge cases or properties could be fully proven.
+
+While Kupsa's use of formal verification tools and annotation specifications to validate the shortest path problem using Dijkstra’s Algorithm is commendable, the process appears overly labor-intensive and constrained by unresolved proof obligations and scalability limitations. Despite these drawbacks, his work provides valuable insights into how one might approach formal verification for pathfinding algorithms.
+
+[^10]: J. Kupsa, “DIJKSTRA’S ALGORITHM—AN (ALMOST) VERIFIED IMPLEMENTATION: Bachelor’s thesis,” May 2024. Accessed: Dec. 07, 2024. Available: https://dspace.cvut.cz/bitstream/handle/10467/115686/F8-BP-2024-Kupsa-Jan-thesis.pdf?sequence=-1&isAllowed=y
+
 ## A\* Implementation Breakdown
 
 The A\* algorithm is a heuristic-based search algorithm with a high efficiency in path exploration. It finds the shortest path from a start node to a goal node in a weighted graph.
